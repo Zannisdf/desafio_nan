@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
-  resources :projects
+  resources :projects do
+    resources :people, only: [] do
+      resources :works, only: %i[new create]
+    end
+  end
   resources :people
   devise_for :admins
 
