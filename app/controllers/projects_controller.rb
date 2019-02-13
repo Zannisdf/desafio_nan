@@ -10,6 +10,8 @@ class ProjectsController < ApplicationController
   # GET /projects/1
   # GET /projects/1.json
   def show
+    @current_works = Work.where(project: @project)
+    @inactive_works = Person.where.not(id: @project.people)
   end
 
   # GET /projects/new

@@ -13,5 +13,48 @@
   <%= @project.budget %>
 </p>
 
+
 <%= link_to 'Edit', edit_project_path(@project) %> |
 <%= link_to 'Back', projects_path %>
+
+<h3>Current workers</h3>
+<% @current_works.each do |work| %>
+  <div class="row mb-3">
+    <div class="col-2">
+      <%= work.person.name %>
+    </div>
+    <div class="col-2">
+      <%= work.person.email %>
+    </div>
+    <div class="col-2">
+      <%= work.person.ocupation %>
+    </div>
+    <div class="col-1">
+      <%= work.fee %>
+    </div>
+    <div class="col-2">
+      <%= work.start_date %>
+    </div>
+    <div class="col-2">
+      <%= work.finish_date %>
+    </div>
+    <div class="col-1">
+      <%= link_to 'Delete', project_person_work_path(@project, work.person, work), method: 'delete', class:'btn btn-danger btn-sm' %>
+    </div>
+  </div>
+<% end %>
+
+<h3>Unassigned workers</h3>
+<% @inactive_works.each do |inactive_work| %>
+<div class="row mb-3">
+  <div class="col-4">
+    <%= inactive_work.name %>
+  </div>
+  <div class="col-4">
+    <%= inactive_work.email %>
+  </div>
+  <div class="col-4">
+    <%= link_to 'Add', new_project_person_work_path(@project, inactive_work), class:'btn btn-primary btn-sm' %>
+  </div>
+</div>
+<% end %>
