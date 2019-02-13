@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <p>
   <strong>Name:</strong>
   <%= @person.name %>
@@ -8,6 +6,11 @@
 <p>
   <strong>Email:</strong>
   <%= @person.email %>
+</p>
+
+<p>
+  <strong>Ocupation</strong>
+  <%= @person.ocupation %>
 </p>
 
 <%= link_to 'Edit', edit_person_path(@person) %> |
