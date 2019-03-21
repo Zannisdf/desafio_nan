@@ -11,6 +11,7 @@ class PeopleController < ApplicationController
   # GET /people/1.json
   def show
     @projects = @person.projects
+    @works = @person.works
   end
 
   # GET /people/new

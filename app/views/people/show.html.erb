@@ -15,3 +15,20 @@
 
 <%= link_to 'Edit', edit_person_path(@person) %> |
 <%= link_to 'Back', people_path %>
+
+
+<h3>Projects</h3>
+<% @projects.each do |project| %>
+<div class="row mb-3">
+  <div class="col-4">
+    <%= project.name %>
+  </div>
+  <div class="col-4">
+    <%= project.description %>
+  </div>
+  <div class="col-4">
+    <%= link_to 'Go to project', project_path(project), class: 'btn btn-info btn-sm' %>
+  </div>
+</div>
+
+<% end %>
